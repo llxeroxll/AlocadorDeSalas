@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package business.model;
 
 public class Turma {
@@ -13,4 +14,28 @@ public class Turma {
 		this.horario = horario;
 	}
 	
+=======
+/**
+ * 
+ */
+package business.model;
+
+/**
+ * @author pedrocleis
+ *
+ */
+public class Turma {
+	
+	int qtdAlunos;
+	Disciplina disciplina;
+	
+
+	/**
+	 * 
+	 */
+	public Turma() {
+		// TODO Auto-generated constructor stub
+	}
+
+>>>>>>> Stashed changes
 }

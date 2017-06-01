@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package business.model;
 
 public class Sala {
@@ -8,4 +9,27 @@ public class Sala {
 		this.qtd_lugares = qtd_lugares;
 		this.recurso = recurso;
 	}
+=======
+/**
+ * 
+ */
+package business.model;
+
+/**
+ * @author pedrocleis
+ * Entidade sala
+ */
+public class Sala {
+	
+	int qntdLugares;
+	int id;
+
+	/**
+	 * 
+	 */
+	public Sala() {
+		// TODO Auto-generated constructor stub
+	}
+
+>>>>>>> Stashed changes
 }

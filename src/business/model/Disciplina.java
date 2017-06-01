@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package business.model;
 
 public class Disciplina {
@@ -12,4 +13,24 @@ public class Disciplina {
 		this.qtd_aulas = qtd_aulas;
 		this.recurso = recurso;	
 	}
+=======
+/**
+ * 
+ */
+package business.model;
+
+/**
+ * @author pedrocleis
+ *
+ */
+public class Disciplina {
+
+	/**
+	 * 
+	 */
+	public Disciplina() {
+		// TODO Auto-generated constructor stub
+	}
+
+>>>>>>> Stashed changes
 }
