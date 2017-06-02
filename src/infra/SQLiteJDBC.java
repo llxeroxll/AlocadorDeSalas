@@ -1,6 +1,7 @@
 package infra;
 import java.sql.*;
 
+import org.sqlite.SQLiteConfig;
 import org.sqlite.SQLiteException;
 
 public class SQLiteJDBC {
@@ -66,7 +67,11 @@ public class SQLiteJDBC {
 						 "VALUES (" + Integer.toString(codigo) + ", '" + id + "', '" + prof + "', " 
 						 			+ Integer.toString(recurso) + ", " + Integer.toString(qtd_aulas) + ");" ;
 			stmt.executeUpdate(sql);
-			System.out.println("Registro inserido com sucesso");
+			
+			
+			System.out.println("Disciplina inserido com sucesso");
+			
+			
 			stmt.close();
 			c.close();
 		}catch(Exception e){
@@ -79,6 +84,68 @@ public class SQLiteJDBC {
 			}	
 		}	
 			return true;
+	}
+	
+	public boolean inserirSala(int id, int qtd_lugar, int recurso){
+		Connection c = null;
+		
+		try{
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:test.db");
+			Statement stmt = null;
+			stmt = c.createStatement();
+			String sql = "INSERT INTO Sala (Id,Qtd_lugares,Recurso) " +
+						 "VALUES (" + Integer.toString(id) + ", " + Integer.toString(qtd_lugar) + ", " + Integer.toString(recurso) + ");";
+			stmt.executeUpdate(sql);
+			
+			
+			System.out.println("Sala inserida com sucesso");
+			
+				
+			stmt.close();
+			c.close();
+		}catch(Exception e){
+			if(e instanceof SQLiteException){
+				System.err.println(e.getClass().getName() + ": " + e.getMessage() );
+				return false;
+			}else{
+				System.err.println(e.getClass().getName() + ": " + e.getMessage() );
+				return false;
+			}	
+		}
+		return true;
+	}
+	
+	public boolean inserirTurma(int id, int qtd_alunos, int disciplina){
+		Connection c = null;
+		
+		try{
+			Class.forName("org.sqlite.JDBC");
+			SQLiteConfig config = new SQLiteConfig();
+			config.enforceForeignKeys(true);	
+			c = DriverManager.getConnection("jdbc:sqlite:test.db", config.toProperties());
+			
+			Statement stmt = null;
+			stmt = c.createStatement();
+			String sql = "INSERT INTO Turma (Id,Qtd_alunos,Horario,Disciplina,Sala) " +
+						 "VALUES (" + Integer.toString(id) + ", " + Integer.toString(qtd_alunos) + ", NULL, " +
+						 Integer.toString(disciplina) + ", NULL);";
+			stmt.executeUpdate(sql);
+			
+			System.out.println("Turma inserida com sucesso");
+			
+			stmt.close();
+			c.close();
+		}catch(Exception e){
+			if(e instanceof SQLiteException){
+				System.err.println(e.getClass().getName() + ": " + e.getMessage() );
+				return false;
+			}else{
+				System.err.println(e.getClass().getName() + ": " + e.getMessage() );
+				return false;
+			}	
+		}
+		return true;
 	}
 	
 }
