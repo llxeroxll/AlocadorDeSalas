@@ -7,5 +7,6 @@ public interface IBancoDeDados {
 	public Sala[] pegaSalas();
 	public Disciplina[] pegaDisciplinas();
 	public Turma[] pegaTurmas();
+	public boolean inserirDisciplina(int codigo, String id, String prof, int recurso, int qtd_aula);
 	
 }
