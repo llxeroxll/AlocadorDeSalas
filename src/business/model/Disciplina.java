@@ -13,4 +13,20 @@ public class Disciplina {
 		this.recurso = recurso;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public String getProfessor() {
+		return professor;
+	}
+
+	public int getQtd_aulas() {
+		return qtd_aulas;
+	}
+
+	public int getRecurso() {
+		return recurso;
+	}
+
 }

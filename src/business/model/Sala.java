@@ -9,4 +9,12 @@ public class Sala {
 		this.recurso = recurso;
 	}
 
+	public int getQtd_lugares() {
+		return qtd_lugares;
+	}
+
+	public int getRecurso() {
+		return recurso;
+	}
+
 }
