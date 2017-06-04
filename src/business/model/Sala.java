@@ -12,7 +12,7 @@ public class Sala {
 	}
 	
 	public String toString(){
-		return "Id: " + Integer.toString(id) + "\nQtd_lugares:  " + Integer.toString(qtd_lugares) + "\nRecurso: " + Integer.toString(recurso);
+		return "Id: " + Integer.toString(id) + "\nQtd_lugares:  " + Integer.toString(qtd_lugares) + "\nRecurso: " + Integer.toString(recurso) + "\n";
 	}
 
 }

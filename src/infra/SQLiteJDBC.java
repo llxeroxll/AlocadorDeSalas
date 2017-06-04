@@ -133,7 +133,7 @@ public class SQLiteJDBC {
 			
 			Statement stmt = null;
 			stmt = c.createStatement();
-			String sql = "INSERT INTO Turma (Id,Qtd_alunos,Horario,Disciplina,Sala) " +
+			String sql = "INSERT INTO Turma (Id,Qtd_alunos,Horario, Prof, Disciplina,Sala) " +
 						 "VALUES (" + Integer.toString(id) + ", " + Integer.toString(qtd_alunos) + ", NULL, '" +
 						 prof + "', " +
 						 Integer.toString(disciplina) + ", NULL);";
@@ -224,7 +224,7 @@ public class SQLiteJDBC {
 		}
 	}
 	
-	public ArrayList<Turma> pegarTurma(){
+	public ArrayList<Turma> pegarTurmas(ArrayList<Disciplina> disciplinas){
 		Connection c = null;
 		Statement stmt = null;
 		
@@ -233,24 +233,32 @@ public class SQLiteJDBC {
 			c = DriverManager.getConnection("jdbc:sqlite:" + nome + ".db");
 			c.setAutoCommit(false);
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Disciplina");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Turma");
 			ArrayList<Turma> resultado = null;
+			Turma turma = null;
+			int id, qtd_alunos, disciplinaCod;
+			String prof = null;
 			Disciplina disciplina = null;
-			int codigo, qtd_aulas, recurso;
-			String id ;
-			
+
 			while(rs.next()){
 				if(resultado == null){
 					resultado = new ArrayList<Turma>();
 				}
 				
-				codigo = rs.getInt("Codigo");
-				id = rs.getString("Id");
-				qtd_aulas = rs.getInt("Qtd_aulas");
-				recurso = rs.getInt("Recurso");
+				id = rs.getInt("Id");
+				qtd_alunos = rs.getInt("Qtd_alunos");
+				disciplinaCod = rs.getInt("Disciplina");
+				prof = rs.getString("Prof");
 				
-				disciplina = new Disciplina(codigo, id, qtd_aulas, recurso);
-				resultado.add(disciplina);
+				for(Disciplina disc: disciplinas){				
+					if(disc.getCodigo() == disciplinaCod){
+						disciplina = disc;
+						break;
+					}
+				}
+				
+				turma = new Turma( id, qtd_alunos, disciplina, prof);
+				resultado.add(turma);
 			}
 			return resultado;			
 			

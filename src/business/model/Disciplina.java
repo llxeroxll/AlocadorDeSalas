@@ -15,7 +15,14 @@ public class Disciplina {
 	
 	public String toString(){
 		return "Codigo: " + Integer.toString(codigo) + "\nId: " + id + "\nQtd_aulas: " 
-						  + Integer.toString(qtd_aulas) + "\nRecurso: " + Integer.toString(recurso) ;
+						  + Integer.toString(qtd_aulas) + "\nRecurso: " + Integer.toString(recurso) + "\n" ;
+	}
+	
+	public int getCodigo(){
+		return codigo;
 	}
 
+	public String getId(){
+		return id;
+	}
 }
