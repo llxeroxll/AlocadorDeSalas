@@ -22,17 +22,9 @@ public class Disciplina {
 		return codigo;
 	}
 
-<<<<<<< HEAD
+
 	public String getId(){
 		return id;
-	}
-=======
-	public String getId() {
-		return id;
-	}
-
-	public String getProfessor() {
-		return professor;
 	}
 
 	public int getQtd_aulas() {
@@ -42,6 +34,4 @@ public class Disciplina {
 	public int getRecurso() {
 		return recurso;
 	}
-
->>>>>>> a5bdbcefe625793534b22bd67fdb2675c1fcf33f
 }
