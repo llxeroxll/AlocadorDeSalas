@@ -15,4 +15,12 @@ public class Sala {
 		return "Id: " + Integer.toString(id) + "\nQtd_lugares:  " + Integer.toString(qtd_lugares) + "\nRecurso: " + Integer.toString(recurso) + "\n";
 	}
 
+	public int getQtd_lugares() {
+		return qtd_lugares;
+	}
+
+	public int getRecurso() {
+		return recurso;
+	}
+
 }

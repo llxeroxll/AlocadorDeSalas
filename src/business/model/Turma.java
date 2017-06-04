@@ -1,5 +1,7 @@
 package business.model;
 
+import java.util.ArrayList;
+
 public class Turma {
 	private int id;
 	private int qtd_alunos;
@@ -20,6 +22,26 @@ public class Turma {
 	public String toString(){
 		return "Id: " + Integer.toString(id) + "\nQtd_alunos: " + Integer.toString(qtd_alunos) + "\nDisciplina: " + disciplina.getId() + 
 				"\nProfessor: " + prof + "\n";
+	}
+
+	public int getQtd_alunos() {
+		return qtd_alunos;
+	}
+
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public Sala getSala() {
+		return sala;
+	}
+
+	public ArrayList<String> getHorario() {
+		ArrayList<String> retorno = new ArrayList<String>();
+		
+		
+		
+		return retorno;
 	}
 
 }
