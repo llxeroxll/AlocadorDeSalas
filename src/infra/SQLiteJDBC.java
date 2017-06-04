@@ -9,7 +9,7 @@ import business.model.Disciplina;
 import business.model.Sala;
 import business.model.Turma;
 
-public class SQLiteJDBC {
+public class SQLiteJDBC implements IBancoDeDados {
 	private String nome;
 	
 	public SQLiteJDBC(String nome){
